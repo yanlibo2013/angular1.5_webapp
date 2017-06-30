@@ -1,0 +1,217 @@
+.col-3.calculator-button {
+    background-color: #EF4F4F;
+    color: white;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear ;
+    -ms-transition: all .2s linear ;
+    -o-transition: all .2s linear ;
+    transition: all .2s linear ;
+}
+.col-3.calculator-button:active {
+    background-color: #de611c;
+    color: white;
+}
+.calculator-button>canvas {
+    margin:0 auto;
+}
+
+button.panic-buy-button {
+    width: 180px;
+    height: 30px;
+    margin: 0 auto;
+    display: block;
+    margin: 8px auto;
+    border: none;
+    border-radius: 3px;
+    background-color: #e74d4d;
+    color: white;
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear ;
+    -ms-transition: all .3s linear ;
+    -o-transition: all .3s linear ;
+    transition: all .3s linear ;
+}
+button.panic-buy-button:active {
+    background-color: #e77d61;
+    color: white;
+}
+
+.calculator-box {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    z-index: 100;
+    /*display: none;*/
+    background-color: white;
+}
+@keyframes animate-add{
+    0%{
+       -webkit-transform: translatey(100%);
+        transform: translatey(100%); 
+    }
+    100%{
+        -webkit-transform: translatey(0);
+        transform: translatey(0);  
+    } 
+}
+@keyframes animate-remove{
+    0%{
+       -webkit-transform: translatey(100%);
+        transform: translatey(100%); 
+    }
+    100%{
+        -webkit-transform: translatey(0);
+        transform: translatey(0);  
+    } 
+}
+.calculator-box.ng-hide-add{
+    animation: 0.5s animate-add;
+}
+.calculator-box.ng-hide-remove{
+    animation: 0.5s animate-remove;
+}
+
+.calculator-result-box {
+    background-color: #ff3940;
+    text-align: center;
+    color: white;
+    padding:0 10px 10px 10px;
+}
+.calculator-result-box>p {
+    text-align: center;
+}
+.calculator-result-box>p:nth-of-type(3) {
+    text-align: right;
+}
+
+.calculator-message-box {
+    background-color: #F0F0F0;
+    color: #747474;
+    height: 45px;
+}
+.calculator-message-box>p {
+    float: left;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    margin: 5px auto;
+}
+.calculator-message-box>p:last-of-type {
+    border-left: 1px solid rgb(166, 166, 166);
+}
+.calculator-message-box span {
+    padding: 4px;
+}
+
+.calculator-input-box {
+    background-color: white;
+    height: 60px;
+}
+.calculator-input-box>div {
+    height: 40px;
+    margin: 10px 0;
+}
+.calculator-input-box>div:nth-of-type(1) {
+    text-align: center;
+}
+.calculator-input-box>div:nth-of-type(2) {
+    line-height: 40px;
+}
+.calculator-money-value {
+    padding-right: 10px;
+    text-align: center;
+}
+
+table.calculator-keyboard {
+    height: 200px;
+    width: 100%;
+    background-color: white;
+}
+.calculator-keyboard-box td {
+    text-align: center;
+    width: 25%;
+    border: 1px solid #f3f3f3;
+    font-weight: bold;
+    -webkit-transition: background .1s linear;
+    -moz-transition: background .1s linear ;
+    -ms-transition: background .1s linear ;
+    -o-transition: background .1s linear ;
+    transition: background .1s linear ;
+}
+td.revoke-key {
+    height: 50px;
+}
+.num-key:active,
+.revoke-key:active,
+.clean-key:active {
+    background: rgb(171, 171, 171);
+}
+td.calculator-submit {
+    background-color: #E83832;
+    font-weight: normal;
+    padding: 0px 18px;
+    -webkit-transition: background .1s linear;
+    -moz-transition: background .1s linear ;
+    -ms-transition: background .1s linear ;
+    -o-transition: background .1s linear ;
+    transition: background .1s linear ;
+}
+td.calculator-submit a{ color: white;}
+td.calculator-submit-disabled {
+	background-color: #888;
+	color: white;
+    font-weight: normal;
+    padding: 0px 18px;
+}
+td.calculator-submit:active {
+    background-color: #e87446;
+}
+canvas.revoke-canvas {
+    position: relative;
+    top: 5px;
+}
+
+.repay-details-box {
+    display: none;
+    background: #fff;
+    height: 260px;
+    text-align: center;
+    margin: 0 auto;
+    width: 95%;
+}
+.repay-header.f14.color666 {
+    height: 35px;
+}
+.repay-header>div, .repays>div {
+    height: 35px;
+    line-height: 35px;
+}
+li.repays {
+    height: 35px;
+    border-top: 1px solid rgb(223, 223, 223);
+}
+.repay-header {
+    height: 35px;
+    padding-top: 5px;
+}
+ul.repay-list {
+    overflow-y: auto;
+    height: 216px;
+}
+/*遮罩层*/
+.mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	display: -webkit-box;
+	-webkit-box-orient: horizontal;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+	background: rgba(0, 0, 0, 0.8);
+}

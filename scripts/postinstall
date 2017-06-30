@@ -1,0 +1,51 @@
+APP_NAME=gqget-wap
+if [ -z $RPM_INSTALL_PREFIX0 ]
+then
+    APP_HOME=/home/tomcat/apps/$APP_NAME
+else
+    APP_HOME=$RPM_INSTALL_PREFIX0/$APP_NAME
+fi
+
+
+echo "Using APP_HOME: $APP_HOME"
+echo "Start to replace config in $APP_NAME ..."
+
+CONFIG_FILE=$APP_HOME/js/config.js
+
+source /home/tomcat/.bash_profile
+
+if [ -z $CONFIG_SERVER ]
+then
+    echo "ERROR: can not find config server..."
+    exit 1
+fi
+
+echo "Using CONFIG_SERVER: $CONFIG_SERVER"
+
+parse_json(){
+        echo $1 | sed 's/.*"'$2'":\([^,}]*\).*/\1/'|sed 's/\"//g'
+}
+
+c=$(curl -s -X GET $CONFIG_SERVER/api/gqhmt/gqget-wap/service)
+
+baseUrl=$(parse_json $c "baseUrl")
+
+wechatUrl=$(parse_json $c "wechatUrl")
+
+getDomain=$(parse_json $c "getDomain")
+
+echo "config file : $CONFIG_FILE"
+
+#sed -i "s#^base.*#baseUrl: $baseUrl \, #g" $CONFIG_FILE
+
+#sed -i "s#base.*#baseUrl: \'$baseUrl\' \ #g" $CONFIG_FILE
+
+sed -i "s#wechat.*#wechatUrl:\"$wechatUrl\" \, #g" $CONFIG_FILE
+sed -i "s#getDomain.*#getDomain:\"$getDomain\" \, #g" $CONFIG_FILE
+sed -i "s#base.*#baseUrl:\"$baseUrl\" \, #g" $CONFIG_FILE
+
+echo "replace result :"
+
+cat $CONFIG_FILE
+
+echo "replace config file completed..."

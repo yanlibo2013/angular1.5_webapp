@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.gqhmt</groupId>
+		<artifactId>gq-parent</artifactId>
+		<version>1.0.0-2</version>
+	</parent>
+
+	<groupId>com.gqhmt.wap</groupId>
+	<artifactId>gqget-wap</artifactId>
+	<version>0.1.2-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<scm>
+		<connection>scm:git:http://git-jk:git-jk@bitbucket.gqihome.com/scm/get/get-wap.git</connection>
+		<developerConnection>scm:git:http://git-jk:git-jk@bitbucket.gqihome.com/scm/get/get-wap.git</developerConnection>
+    	<tag>HEAD</tag>
+  </scm>
+
+
+  <profiles>
+		<profile>
+			<id>rpm-build</id>
+			<properties>
+				<USER_NAME>tomcat</USER_NAME>
+				<GROUP_NAME>tomcat</GROUP_NAME>
+				<APP_HOME>/home/tomcat/apps</APP_HOME>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>rpm-maven-plugin</artifactId>
+						<extensions>true</extensions>
+						<executions>
+							<execution>
+								<goals>
+									<goal>attached-rpm</goal>
+								</goals>
+								<phase>verify</phase>
+							</execution>
+						</executions>
+						<configuration>
+							<group>GQHMT</group>
+							<summary>冠群驰骋</summary>
+							<vendor>gqget</vendor>
+							<packager>rpm</packager>
+							<needarch>noarch</needarch>
+							<prefixes>
+								<prefix>${APP_HOME}</prefix>
+							</prefixes>
+							<mappings>
+								<mapping>
+									<directory>${APP_HOME}/${project.artifactId}</directory>
+									<filemode>754</filemode>
+									<username>${USER_NAME}</username>
+									<groupname>${GROUP_NAME}</groupname>
+									<sources>
+										<source>
+											<location>${basedir}/build
+											</location>
+										</source>
+									</sources>
+								</mapping>
+							</mappings>
+							<postinstallScriptlet>
+								<scriptFile>scripts/postinstall</scriptFile>
+								<fileEncoding>UTF-8</fileEncoding>
+							</postinstallScriptlet>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

@@ -1,0 +1,12 @@
+html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;height;}
+body{line-height:1.6;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;}
+body,h1,h2,ul,ol,li,p{margin:0;padding:0}
+.text-center{text-align:center}
+.ui-container{padding:50px 10px 25px;-webkit-overflow-scrolling: touch;}
+.ui-container h1{font-size:22px;font-weight:800}
+h1{-webkit-margin-before:0;-webkit-margin-after:.5em}
+h2{padding:10px 5px;font-size:16px;font-weight:600;-webkit-margin-before:0;-webkit-margin-after:0}
+p{-webkit-margin-before:0;-webkit-margin-after:0}
+ol{list-style-type:none;padding-left:0;-webkit-margin-before:.5em;-webkit-margin-after:.5em}
+ol li{padding:5px;font-size:14px;line-height:26px}
+.ml15{margin-left:15px}

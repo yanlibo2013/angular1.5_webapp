@@ -1,0 +1,8 @@
+.box{display:flex;justify-content:center;align-items:center}
+.ui-row-flex{display:-webkit-box;width:100%;-webkit-box-sizing:border-box}
+.ui-row-flex .ui-col{float:none;-webkit-box-flex:1;width:0}
+.menu .ui-flex{display:-webkit-box;width:100%;-webkit-box-sizing:border-box;border-top:1px solid #EF4F4F;border-bottom:1px solid #EF4F4F;min-height:27px;line-height:27px;color:#EF4F4F;font-size:12px;-webkit-box-pack:center}
+.menu a{color:#EF4F4F;}
+.checked,.menu .checked a,.menu .checked a:visited,.menu .checked{background-color:#EF4F4F;color:#fff}
+.menu li:first-child{border-bottom-left-radius:5px;border-top-left-radius:5px;border-left:1px solid #EF4F4F}
+.menu li:last-child{border-bottom-right-radius:5px;border-top-right-radius:5px;border-right:1px solid #EF4F4F}
