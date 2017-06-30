@@ -1,4 +1,4 @@
-冠E通-wap
+
 =========================
 angularjs + requirejs
 gulp构建项目
