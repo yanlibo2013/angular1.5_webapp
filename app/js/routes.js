@@ -32,7 +32,18 @@ define([], function () {
                         AboutCtrl: loadController("controllers/aboutCtrl")
                     }
                 }
-            }
+            },
+            // {
+            //     name: "list",
+            //     data: {
+            //         url: '/list',
+            //         templateUrl: 'views/list.html',
+            //         controller: 'ListCtrl',
+            //         resolve: {
+            //             ListCtrl: loadController("controllers/ListCtrl")
+            //         }
+            //     }
+            // }
 
         ]
     };

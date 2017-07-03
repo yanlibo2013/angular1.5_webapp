@@ -1,20 +1,21 @@
 <style>
-    .body {
-        background-color: rosybrown;
-        width: 100%;
-        height: 100px;
-        text-align: center
-    }
-
-    .btn {
-        width: 75px;
-        height: 30px;
-        background-color: rebeccapurple
+    .done-true {
+        text-decoration: line-through;
+        color: grey;
     }
 </style>
 
-<div ng-init="" class="body">
-    <h1> home</h1>
-
-    <div class="btn" ng-click="tap()">tap</div>
+<div ng-controller="HomeCtrl">
+    <h2>To-do List</h2>
+    <hr/>
+    <div>{{remaining()}} of {{total}} 已选中元素的个数 <button ng-click="archive()">archive</button></div>
+    <ul ng-repeat="todo in todos">
+        <li class="done-{{todo.done}}">
+            <input type="checkbox" ng-model="todo.done"> {{todo.name}}
+        </li>
+    </ul>
+    <form action="#">
+        <input type="text" ng-model="newTodo" placeholder="请输入城市名称">
+        <input type="button" value="add" ng-click="addTodo()">
+    </form>
 </div>
